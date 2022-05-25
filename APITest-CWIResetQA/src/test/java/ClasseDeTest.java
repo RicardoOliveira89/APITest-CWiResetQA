@@ -39,6 +39,7 @@ public class ClasseDeTest {
 
         Response createToken =
                 given()
+                        .log().all()
                         .header("Content-Type", "application/json")
                         .when()
                         .body(payload)
@@ -46,10 +47,12 @@ public class ClasseDeTest {
 
         createToken
                 .then()
+                .log().all()
                 .statusCode(200)
-                .body(payload);
-
-
+                .extract()
+                .path("token");
     }
+
+
 
 }
