@@ -1,22 +1,20 @@
 package br.com.cwi.apitestcwiresetqa.tests.auth.requests;
 
+import br.com.cwi.apitestcwiresetqa.tests.auth.payloads.AuthPayloads;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
 import static io.restassured.RestAssured.given;
 
 public class PostAuthRequest {
+    AuthPayloads authPayloads = new AuthPayloads();
     public Response tokenReturn(){
-        JSONObject payload = new JSONObject();
-
-        payload.put("username", "admin");
-        payload.put("password", "password123");
 
         return given()
                 .header("Content-Type", "application/json")
                 .when()
-                .body(payload.toString())
-                .post("https://treinamento-api.herokuapp.com/auth");
+                .body(authPayloads.jsonAuthLogin().toString())
+                .post("auth");
     }
 
     public String getToken (){

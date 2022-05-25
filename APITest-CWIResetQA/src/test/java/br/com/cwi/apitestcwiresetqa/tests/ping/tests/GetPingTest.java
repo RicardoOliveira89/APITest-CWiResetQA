@@ -1,9 +1,10 @@
 package br.com.cwi.apitestcwiresetqa.tests.ping.tests;
 
+import br.com.cwi.apitestcwiresetqa.tests.base.BaseTest;
 import br.com.cwi.apitestcwiresetqa.tests.ping.requests.GetPingRequest;
 import org.junit.Test;
 
-public class GetPingTest {
+public class GetPingTest extends BaseTest {
     GetPingRequest getPingRequest = new GetPingRequest();
 
     @Test
