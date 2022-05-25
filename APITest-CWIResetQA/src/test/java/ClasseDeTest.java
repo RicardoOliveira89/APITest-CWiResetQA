@@ -7,19 +7,6 @@ import static org.hamcrest.Matchers.greaterThan;
 
 public class ClasseDeTest {
     @Test
-    public void validarApiOnline(){
-        Response responsePing =
-                given()
-                        .header("Content-Type", "application/json")
-                        .when()
-                        .get("https://treinamento-api.herokuapp.com/ping");
-
-        responsePing
-                .then()
-                .statusCode(201);
-    }
-
-    @Test
     public void validarListagemDeIdsDasReservas(){
         Response responseReturnBookingIds =
                 given()
@@ -32,7 +19,8 @@ public class ClasseDeTest {
     }
 
     @Test
-    public void criartoken (){
+    public void validarRetornoDeTokenParaUsuario (){
+
         JSONObject payload = new JSONObject();
         payload.put("username", "admin");
         payload.put("password", "password123");
@@ -42,7 +30,7 @@ public class ClasseDeTest {
                         .log().all()
                         .header("Content-Type", "application/json")
                         .when()
-                        .body(payload)
+                        .body(payload.toString())
                         .post("https://treinamento-api.herokuapp.com/auth");
 
         createToken
@@ -51,8 +39,16 @@ public class ClasseDeTest {
                 .statusCode(200)
                 .extract()
                 .path("token");
+
+
     }
 
-
+//    public String pegarToken(){
+//        return "token=" + this.validarRetornoDeTokenParaUsuario()
+//                .then()
+//                .statusCode(200)
+//                .extract()
+//                .path("token");
+//    }
 
 }
