@@ -1,6 +1,5 @@
 package br.com.cwi.apitestcwiresetqa.tests.booking.payloads;
 
-import br.com.cwi.apitestcwiresetqa.tests.base.BaseTest;
 import org.json.JSONObject;
 
 public class BookingPayloads {
