@@ -12,7 +12,7 @@ public class GetBookingTest extends BaseTest {
     GetBookingRequest getBookingRequest = new GetBookingRequest();
     @Test
     @Category({AllTests.class})
-    public void validarListagemDeIdsDasReservas(){
+    public void validaListagemDeIdsDasReservas(){
         getBookingRequest.bookingReturnIds()
                 .then()
                 .statusCode(200)
